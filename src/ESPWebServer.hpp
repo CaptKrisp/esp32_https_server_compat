@@ -61,6 +61,9 @@ public:
   virtual void close();
   void stop();
 
+  httpsserver::HTTPRequest* getActiveRequest ();
+  httpsserver::HTTPResponse* getActiveResponse ();
+
   bool authenticate(const char * username, const char * password);
   void requestAuthentication(HTTPAuthMethod mode = BASIC_AUTH, const char* realm = NULL, const String& authFailMsg = String("") );
 

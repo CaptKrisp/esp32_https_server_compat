@@ -82,6 +82,14 @@ void ESPWebServer::stop() {
   _server->stop();
 }
 
+httpsserver::HTTPRequest* ESPWebServer::getActiveRequest () {
+	return _activeRequest;
+}
+
+httpsserver::HTTPResponse* ESPWebServer::getActiveResponse () {
+	return _activeResponse;
+}
+
 bool ESPWebServer::authenticate(const char * username, const char * password) {
   std::string authHeader = _activeRequest->getHeader("Authorization");
   if (authHeader == "") return false;
